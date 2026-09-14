@@ -3,7 +3,7 @@
 A hands-on Azure infrastructure project demonstrating the design, deployment, networking, security, and automation of a two-tier application environment.
 
 ## Business Context & Purpose
-This project demonstrates an enterprise-grade, secure two-tier hosting pattern in Azure. It models how organizations isolate internet-facing web workloads from backend databases using strict network segmentation, private endpoints, and least-privilege security controls.
+This project demonstrates a secure two-tier hosting pattern in Azure, using network segmentation, Private Link, NSGs, and controlled application-to-database connectivity..
 
 ## Project Status
 
