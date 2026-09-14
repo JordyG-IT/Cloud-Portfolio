@@ -3,7 +3,7 @@
 A hands-on Azure infrastructure project demonstrating the design, deployment, networking, security, and automation of a two-tier application environment.
 
 ## Business Context & Purpose
-This project demonstrates a secure two-tier hosting pattern in Azure, using network segmentation, Private Link, NSGs, and controlled application-to-database connectivity..
+This project demonstrates a secure two-tier hosting pattern in Azure, using network segmentation, Private Link, NSGs, and controlled application-to-database connectivity.
 
 ## Project Status
 
@@ -92,7 +92,7 @@ Private connectivity to Azure SQL was validated from the Ubuntu VM.
 ```text
 nslookup test-webapp1.database.windows.net
 ```
-Successfully resolved the Azure SQL hostname through the Private Endpoint configuration.
+Successfully resolved the Azure SQL hostname to the private endpoint through Azure Private DNS
 
 ```text
 nc -zv test-webapp1.database.windows.net 1433
@@ -140,4 +140,5 @@ The infrastructure will eventually host Snipe-IT as the application workload.
 
 The application deployment will demonstrate:
 
-* Docker con
+* Docker packaging and deployment
+* Integration into a continuous integration and continuous delivery (CI/CD) pipeline
