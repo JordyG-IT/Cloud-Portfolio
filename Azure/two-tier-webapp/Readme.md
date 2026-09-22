@@ -7,28 +7,9 @@ This project demonstrates a secure two-tier hosting pattern in Azure, using netw
 
 ## Project Status
 
-**Current phase:** Manual Azure infrastructure build complete
-**Next phase:** Infrastructure as Code with Terraform
+**Current Task:** Refactor Terraform to use Modules
 
-### Completed
-
-* Azure Virtual Network
-* Application and data subnets
-* Ubuntu application VM
-* Network Security Group
-* HTTPS-only Nginx configuration
-* Azure SQL logical server and database
-* Azure SQL Private Endpoint
-* Private DNS
-* Private connectivity between the application subnet and Azure SQL
-* SQL authentication and database connectivity testing
-* Azure cost budget and alerts
-
-### Planned
-* Codify existing infrastructure into modular Terraform code
-* Containerized Snipe-IT deployment
-* Azure Container Registry
-* Build a GitHub Actions CI/CD pipeline utilizing OIDC for passwordless Azure deployment
+**Next Task:** Architect CI/CD system.
 
 ---
 
@@ -41,7 +22,7 @@ This project demonstrates a secure two-tier hosting pattern in Azure, using netw
 
 | Resource           | Configuration                      |
 | ------------------ | ---------------------------------- |
-| Resource Group     | `Test-AppInfra.1`                  |
+| Resource Group     | `RG-Dev`                           |
 | Virtual Network    | `Test-WebApp`                      |
 | VNet Address Space | `10.0.0.0/16`                      |
 | Application Subnet | `10.0.1.0/24`                      |

@@ -4,7 +4,7 @@ Welcome to my cloud portfolio. This repository contains hands-on infrastructure 
 
 ## Featured Projects
 
-### Azure Two Tier Web application
+### [Azure Two Tier Web application](https://github.com/JordyG-IT/Cloud-Portfolio/tree/main/Azure/two-tier-webapp)
 
 A hands-on Azure project demonstrating the design, deployment, and automation of a secure two-tier cloud application, progressively implementing CI/CD and Infrastructure as Code.
 

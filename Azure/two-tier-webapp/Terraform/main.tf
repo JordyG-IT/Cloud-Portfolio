@@ -16,7 +16,7 @@ resource "azurerm_resource_group" "RG-Dev" {
 }
 #Vnets
 resource "azurerm_virtual_network" "virtual_network_1" {
-  name                = "Test_Vnet"
+  name                = "Dev-WebApp"
   location            = azurerm_resource_group.RG-Dev.location
   resource_group_name = azurerm_resource_group.RG-Dev.name
   address_space       = ["10.0.0.0/16"]
@@ -28,13 +28,13 @@ resource "azurerm_virtual_network" "virtual_network_1" {
 }
 #Subnets
 resource "azurerm_subnet" "dev_subnet_public" {
-  name                 = "Test_Subnet_Public"
+  name                 = "Dev_Subnet_Public"
   resource_group_name  = azurerm_resource_group.RG-Dev.name
   virtual_network_name = azurerm_virtual_network.virtual_network_1.name
   address_prefixes     = [var.subnet_address_space[0]]
 }
 resource "azurerm_subnet" "dev_subnet_private" {
-  name                              = "Test_Subnet_Private"
+  name                              = "Dev_Subnet_Private"
   resource_group_name               = azurerm_resource_group.RG-Dev.name
   virtual_network_name              = azurerm_virtual_network.virtual_network_1.name
   address_prefixes                  = [var.subnet_address_space[1]]
@@ -142,7 +142,7 @@ resource "azurerm_network_interface" "Dev_NIC" {
 }
 # NICS
 resource "azurerm_public_ip" "Dev_WebApp_PublicIP" {
-  name                = "Test_WebApp_PublicIP"
+  name                = "Dev_WebApp_PublicIP"
   resource_group_name = azurerm_resource_group.RG-Dev.name
   location            = azurerm_resource_group.RG-Dev.location
   allocation_method   = "Static"
@@ -159,7 +159,7 @@ resource "azurerm_private_dns_zone" "dns_zone" {
   resource_group_name = azurerm_resource_group.RG-Dev.name
 
   tags = {
-    Environment = "Test"
+    Environment = "Dev"
     Managedby   = "Terraform"
   }
 }
@@ -172,7 +172,7 @@ resource "azurerm_private_dns_zone_virtual_network_link" "sql_dns_link" {
   registration_enabled = true
 
   tags = {
-    Environment = "Test"
+    Environment = "Dev"
     Managedby   = "Terraform"
   }
 }
@@ -185,7 +185,7 @@ resource "azurerm_private_endpoint" "SQL_private_endpoint" {
 
   private_service_connection {
     name                           = "SQL-privateserviceconnection"
-    private_connection_resource_id = azurerm_mssql_server.sql_test_webapp.id
+    private_connection_resource_id = azurerm_mssql_server.sql_Dev_webapp.id
     subresource_names              = ["sqlServer"]
     is_manual_connection           = false
   }
@@ -195,8 +195,8 @@ resource "azurerm_private_endpoint" "SQL_private_endpoint" {
   }
 }
 #SQL Server and Db
-resource "azurerm_mssql_server" "sql_test_webapp" {
-  name                         = "test-webapp"
+resource "azurerm_mssql_server" "sql_Dev_webapp" {
+  name                         = "Dev-webapp"
   resource_group_name          = azurerm_resource_group.RG-Dev.name
   location                     = azurerm_resource_group.RG-Dev.location
   version                      = "12.0"
@@ -204,9 +204,9 @@ resource "azurerm_mssql_server" "sql_test_webapp" {
   administrator_login_password = var.sql_admin_pass
 }
 
-resource "azurerm_mssql_database" "sql_test_webapp_db" {
-  name                        = "test_webapp_db"
-  server_id                   = azurerm_mssql_server.sql_test_webapp.id
+resource "azurerm_mssql_database" "sql_Dev_webapp_db" {
+  name                        = "Dev_webapp_db"
+  server_id                   = azurerm_mssql_server.sql_Dev_webapp.id
   collation                   = "SQL_Latin1_General_CP1_CI_AS"
   max_size_gb                 = 2
   sku_name                    = "GP_S_Gen5_2"
@@ -219,8 +219,8 @@ resource "azurerm_mssql_database" "sql_test_webapp_db" {
   }
 }
 #Compute
-resource "azurerm_linux_virtual_machine" "test_webapp_vm1" {
-  name                = "test_webapp_vm1"
+resource "azurerm_linux_virtual_machine" "Dev_webapp_vm1" {
+  name                = "Dev_webapp_vm1"
   resource_group_name = azurerm_resource_group.RG-Dev.name
   location            = azurerm_resource_group.RG-Dev.location
   size                = "Standard_D2s_v3"
