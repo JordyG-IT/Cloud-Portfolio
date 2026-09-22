@@ -4,10 +4,18 @@ Welcome to my cloud portfolio. This repository contains hands-on infrastructure 
 
 ## Featured Projects
 
-| Project | Cloud / Tech Stack | Focus Areas | Status |
-| :--- | :--- | :--- | :--- |
-| **[Azure Two-Tier Web App](./Azure/two-tier-webapp)** | Azure, Networking, Linux, SQL | Network Isolation, Private Endpoints, NSGs | **Phase 1 Complete** (Portal Build) |
+### Azure Two Tier Web application
 
+A hands-on Azure project demonstrating the design, deployment, and automation of a secure two-tier cloud application, progressively implementing CI/CD and Infrastructure as Code.
+
+---
+| Phase | Cloud / Tech Stack | Focus Areas | Status |
+| :--- | :--- | :--- | :--- |
+Phase 1: Manual Build | Azure Networking, Linux, SQL | Architecture, Network Isolation, Private Endpoints, NSGs | Complete
+Phase 2: Terraform IaC | Terraform, Azure| Infrastructure as Code | Complete
+Phase 3: Terraform Modules | Terraform, Azure | Infrastructure as Code | Planned
+Phase 4: CI/CD | GitHub Actions, Terraform, Azure | Automation, Deployment Workflows | Planned
+Phase 5: CI/CD - Implement OIDC | Github Actions, Terraform, Azure | Automation, Deployment Security | Planned
 ---
 
 ## Contact & Links
