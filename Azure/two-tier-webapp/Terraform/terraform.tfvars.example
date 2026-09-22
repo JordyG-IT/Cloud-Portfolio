@@ -1,0 +1,7 @@
+#Define the values for your variables.
+
+admin_ip = ["<admin ip>"]
+
+sql_admin_login = "<sql_admin>"
+
+sql_admin_pass = "<sql_pass>"
