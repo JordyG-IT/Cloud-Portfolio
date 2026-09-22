@@ -6,8 +6,7 @@ Welcome to my cloud portfolio. This repository contains hands-on infrastructure 
 
 | Project | Cloud / Tech Stack | Focus Areas | Status |
 | :--- | :--- | :--- | :--- |
-| **[Azure Two-Tier Web App](./Azure/two-tier-webapp)** | Azure, Networking, Linux, SQL | Network Isolation, Private Endpoints, NSGs | **Phase 1 Complete** (Portal Build) |
-
+| **[Azure Two-Tier Web App](./Azure/two-tier-webapp)** | Azure, Networking, Linux, SQL | Network Isolation, Private Endpoints, NSGs | **Phase 2 Complete** (Terraform IaC)|
 ---
 
 ## Contact & Links
