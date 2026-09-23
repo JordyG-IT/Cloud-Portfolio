@@ -12,10 +12,10 @@ A hands-on Azure project demonstrating the design, deployment, and automation of
 | Phase | Cloud / Tech Stack | Focus Areas | Status |
 | :--- | :--- | :--- | :--- |
 [Phase 1: Manual Build](https://github.com/JordyG-IT/Cloud-Portfolio/blob/main/Azure/two-tier-webapp/Readme.md) | Azure Networking, Linux, SQL | Architecture, Network Isolation, Private Endpoints, NSGs | Complete
-[Phase 2: Terraform IaC](https://github.com/JordyG-IT/Cloud-Portfolio/tree/main/Azure/two-tier-webapp/Terraform) | Terraform, Azure| Infrastructure as Code | Complete
-Phase 3: Terraform Modules | Terraform, Azure | Infrastructure as Code | In Progress
-Phase 4: CI/CD | GitHub Actions, Terraform, Azure | Automation, Deployment Workflows | Planned
-Phase 5: CI/CD - Implement OIDC | Github Actions, Terraform, Azure | Automation, Deployment Security | Planned
+[Phase 2: Terraform IaC](https://github.com/JordyG-IT/Cloud-Portfolio/tree/main/Azure/two-tier-webapp/Terraform) | Terraform, Azure| Infrastructure as Code | Refactor In Progress
+Phase 3: Cloud Governance | Azure Policy, JSON, Bicep/Terraform |Policy as Code, Compliance Guardrails | Planned
+Phase 4: CI/CD | GitHub Actions, Azure Devops | Pipelines, Automation, Git Workflows | Planned
+Phase 5: Inline Security Scanning | DevSecOps, Trivy, Checkov, GitHub Actions | DevSecOps, Secrets Detection | Planned
 ---
 
 ## Contact & Links
