@@ -21,3 +21,4 @@ Phase 5: Inline Security Scanning | DevSecOps, Trivy, Checkov, GitHub Actions | 
 ## Contact & Links
 * [LinkedIn](https://linkedin.com/in/jordy-garrett-9ba232249/)
 * **Certifications:** Azure Administrator Associate (AZ-104), CompTIA Security+
+* Check out my [Automation-Tools](https://github.com/JordyG-IT/Automation-Tools)
