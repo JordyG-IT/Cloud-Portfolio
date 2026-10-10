@@ -102,18 +102,34 @@ Database
 
 ## Infrastructure as Code
 
-The environment was initially built manually to understand and validate the architecture.
+The environment was initially built manually to understand and validate the architecture, and is now fully managed via Terraform.
 
-The next phase is to reproduce the existing environment using Terraform.
+## Guardrails - Using Azure policy
 
-The goal is to:
 
-1. Define the Azure infrastructure in Terraform.
-2. Import the existing resources.
-3. Compare the Terraform configuration against the manually deployed environment.
-4. Resolve configuration drift.
-5. Validate the environment with `terraform plan`.
-6. Eventually manage the infrastructure entirely through Terraform.
+Azure Policy keeps the lab inside defined limits. It restricts where resources can be deployed, limits which VM sizes can be used, and flags configurations that don't follow the secure design. The policies are grouped into a custom initiative and assigned at the subscription scope.
+
+![Initiative policies](<Intiative Policies.png>)
+
+### Policies
+
+| Policy | Effect | Purpose |
+|---|---|---|
+| Allowed locations | Deny | Restricts deployments to West US 2, so the whole stack stays in one region and avoids cross-region traffic costs |
+| Allowed virtual machine size SKUs | Deny | Limits VMs to `Standard_B2s` and `Standard_D2s_v3` to keep lab costs predictable |
+| Public network access on Azure SQL Database should be disabled | Audit | Confirms the SQL server is only reachable through its private endpoint |
+| Require the `environment` tag | Audit | Keeps every resource tagged consistently with the Terraform `common_tags` |
+
+The allowed locations and SKUs are initiative parameters, so adding a region or a VM size means editing the assignment, not the initiative.
+
+### Rollout approach
+
+New policies started in audit-only mode (Do not enforce). I reviewed the compliance report, fixed what it flagged, and then switched the location and SKU policies to enforcing. Policies that flag intentional design choices stay in Audit.
+
+
+### Managed outside Terraform
+
+Policy applies to the whole subscription, so it's kept out of this project's Terraform state. That way `terraform destroy` on the lab doesn't remove the guardrails. Managing policy as code (`azurerm_policy_definition`, `azurerm_policy_set_definition`, `azurerm_subscription_policy_assignment`) is planned future work.
 
 ## Application Deployment
 
